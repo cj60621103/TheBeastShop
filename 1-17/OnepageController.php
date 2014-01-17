@@ -406,7 +406,7 @@ class Cc_Remove_OnepageController extends Mage_Checkout_OnepageController
 			foreach($quote->getAllVisibleItems() as $_item){
 				$_product = Mage::getModel('catalog/product')->load($_item->getProductId());
 				if((boolean)$_product->getData('shippin_area')){
-					if($region != '上海市'){
+					if($region != '上海市' && $region != '北京市'){
 						 Mage::helper('checkout/cart')->getCart()->removeItem($_item->getId())->save();
 					}	
 				}						
